@@ -1,0 +1,20 @@
+<!doctype html>
+<body>
+	<button id="names-button">Show names</button>
+	<h1>My Friends' names</h1>
+	<div id="names">Here be names.</div>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		jQuery('#names-button').click(function () {
+			jQuery.ajax("data/namesggggggg.html", {
+				dataType: "html",
+				success: function(names) {
+					jQuery('#names').html(names);
+				},
+				error: function (e) {
+					alert(e);
+				}
+			});
+		});
+	</script>
+</body>

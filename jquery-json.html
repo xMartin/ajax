@@ -1,0 +1,23 @@
+<!doctype html>
+<body>
+	<button id="names-button">Show names</button>
+	<h1>My Friends' names</h1>
+	<div id="names">Here be names.</div>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		jQuery('#names-button').click(function () {
+			jQuery.ajax("data/names.json", {
+				dataType: "json",
+				success: function(data) {
+					var nameList = data.names;
+					var resultString = "<ul>";
+					jQuery.each(nameList, function (i, name) {
+						resultString += "<li>" + name + "</li>";
+					});
+					resultString += "</ul>";
+					jQuery('#names').html(resultString);
+				}
+			});
+		});
+	</script>
+</body>
